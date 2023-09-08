@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import './ToDoList.css';
-// import './ToDoListLight.css';
 import IconeDark from './img/checkDark.gif';
 import IconeLight from './img/checkLight.gif';
+
+// Define the CSS file paths
+const ToDoListCss = "./src/ToDoList.css";
+const ToDoListLightCss = "./src/ToDoListLight.css";
 
 function ToDoList(form) {
     const listaStorage = localStorage.getItem('lista');
@@ -44,7 +47,8 @@ function ToDoList(form) {
         setIsLightMode(!isLightMode);
     };
 
-    const themeCssFile = isLightMode ? "./src/ToDoList.css" : "./src/ToDoListLight.css";
+    // Use the appropriate CSS file based on the theme
+    const themeCssFile = isLightMode ? ToDoListCss : ToDoListLightCss;
 
     const iconSrc = isLightMode ? IconeDark : IconeLight;
 
