@@ -52,7 +52,6 @@ function ToDoList(form){
 
     return (
         <div>
-        {/* Link to the dynamic CSS file based on the theme */}
         <link rel="stylesheet" type="text/css" href={themeCssFile} />
 
         <div className={`switchButton ${isLightMode ? "light-theme" : "dark-theme"}`}>
