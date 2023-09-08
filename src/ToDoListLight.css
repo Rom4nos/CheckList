@@ -67,6 +67,8 @@ input{
     color: black;
     margin-bottom: 10px;
     cursor: pointer;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .item:hover{
     background-color: #dfdfdf;
@@ -87,6 +89,8 @@ input{
     margin-bottom: 10px;
     cursor: pointer;
     opacity: 0.4;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .item.completo span{
     width: 100%;
