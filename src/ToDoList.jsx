@@ -44,7 +44,7 @@ function ToDoList(form) {
         setIsLightMode(!isLightMode);
     };
 
-    const themeCssFile = isLightMode ? "./src/ToDoList.css" : "./src/ToDoListLight.css";
+    const themeCssFile = isLightMode ? "CheckList/src/ToDoList.css" : "CheckList/src/ToDoListLight.css";
 
     const iconSrc = isLightMode ? IconeDark : IconeLight;
 
