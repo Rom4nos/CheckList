@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import './ToDoList.css';
+import './ToDoListLight.css';
 import IconeDark from './img/checkDark.gif';
 import IconeLight from './img/checkLight.gif';
 
@@ -43,19 +43,90 @@ function ToDoList(form) {
         setlista([]);
     }
 
+    useEffect(() => {
+        // Create a new style element
+        const styleElement = document.createElement('style');
+        // Define your light mode styles
+        const lightStyles = `
+        body{
+            background-color: #ffffff;
+        }
+        button.add{
+            background: #6a71a2;
+            color: white;
+        }
+        button.add:hover{
+            color:white;
+            background-color: #9098ce;
+            }
+        input{
+            color:#7d83b9;
+            background: #dfdfdf;
+            }
+            .item:hover{
+                background-color: #dfdfdf;
+            }
+            .item span{
+                color: rgb(0, 0, 0);
+
+            }
+            .item.completo{
+                background-color: #dfdfdf;
+                color: black;
+                opacity: 0.4;
+            }
+            .item.completo span{
+                color: #4d506e;
+                text-decoration: line-through;
+            }
+        `;
+        // Define your dark mode styles
+        const darkStyles = `
+        body{
+            background-color: #222435;
+            font-family: 'Roboto', sans-serif;
+        }
+    }
+    button.add{
+        background: #363b65;
+    }
+    button.add:hover{
+        color:white;
+        background-color: #363f88;
+    }
+    input{
+        color:#a2a2a4;
+        background: #2d3046;
+    }
+    .item:hover{
+        background-color: #151627;
+    }
+    .item span{
+        color: white;
+    }
+    .item.completo{
+        background-color: #1e1f2e;
+        color: black;
+        opacity: 0.8;
+    }
+    .item.completo span{
+        color: #4d506e;
+    }
+        `;
+        const selectedStyles = isLightMode ? darkStyles : lightStyles;
+        styleElement.innerHTML = selectedStyles;
+        document.head.appendChild(styleElement);
+    }, [isLightMode]);
+
+    // Function to toggle the light/dark mode
     const toggleTheme = () => {
         setIsLightMode(!isLightMode);
     };
-
-    // Use the appropriate CSS file based on the theme
-    const themeCssFile = isLightMode ? ToDoListCss : ToDoListLightCss;
 
     const iconSrc = isLightMode ? IconeDark : IconeLight;
 
     return (
         <div>
-            <link rel="stylesheet" type="text/css" href={themeCssFile} />
-
             <div className={`switchButton ${isLightMode ? "light-theme" : "dark-theme"}`}>
                 <h1>Lista de Tarefas</h1>
                 <label className="switch">
